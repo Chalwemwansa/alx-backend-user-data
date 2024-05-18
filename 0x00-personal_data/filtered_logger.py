@@ -37,7 +37,7 @@ def filter_datum(fields: List[str], redaction: str, message: str,
     """returns the log message obfuscated, uses a regex to replace
     occurences of certain fields with certain values"""
     for field in fields:
-        message = re.sub(rf'{field}=(.*?){seperator}',
+        message: str = re.sub(rf'{field}=(.*?){seperator}',
                          f'{field}={redaction}{seperator}', message)
     return message
 
